@@ -1,0 +1,127 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #2e377a, #6a7b9b); /* Default theme background gradient */
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.webstore-header {
+    background: linear-gradient(to right, #4a00e0, #8e2de2); /* Default Theme Header Gradient */
+    color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Content Styles */
+.webstore-content {
+    padding: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #008cff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Footer Styles */
+.webstore-footer {
+    background: linear-gradient(to right, #4a00e0, #8e2de2); /* Default Theme Footer Gradient */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.webstore-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.theme-selector button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-selector button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #f0f0f0;
+}
+
+body.dark-theme .webstore-header {
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Dark Theme Gradient */
+}
+
+body.dark-theme .webstore-footer {
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Dark Theme Gradient */
+}
+
+body.dark-theme .webstore-content {
+    background-color: #242d3c;
+    color: #e4e6eb;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Light Theme */
+body.light-theme {
+    background: linear-gradient(135deg, #e6e9f0, #eef1f5);
+    color: #444;
+}
+
+body.light-theme .webstore-header,
+body.light-theme .webstore-footer {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Light Theme Gradient */
+    color: #444;
+}
+
+body.light-theme .navbar-nav .nav-link {
+    color: #444;
+}
+
+body.light-theme .webstore-content {
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .theme-selector button {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #444;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .theme-selector button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
