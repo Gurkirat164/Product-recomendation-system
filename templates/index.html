@@ -34,14 +34,37 @@
     </header>
 
     <main class="container webstore-content">
-        <!-- Content Area -->
+        <section class="trending-section">
+            <h2 class="section-title">Trending Products</h2>
+            <div class="row">
+                {% for item in trending_items %}
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="{{ item.img_link }}" alt="{{ item.product_name }}" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">{{ item.product_name }}</h5>
+                            <div class="product-price">
+                                <span class="discounted-price">{{ item.discounted_price }}</span>
+                                <span class="actual-price">{{ item.actual_price }}</span>
+                                <span class="discount-badge">{{ item.discount_percentage }}</span>
+                            </div>
+                            <div class="product-rating">
+                                <span class="rating-value">{{ item.rating }} ★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
     </main>
 
     <footer class="webstore-footer">
         <div class="container">
             <p>&copy; 2025 Webstore. All rights reserved.</p>
             <div class="theme-selector">
-                <button class="theme-button" data-theme="default">Default</button>
                 <button class="theme-button" data-theme="dark">Dark</button>
                 <button class="theme-button" data-theme="light">Light</button>
             </div>
