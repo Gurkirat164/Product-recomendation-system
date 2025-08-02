@@ -34,6 +34,152 @@ body {
     transform: translateY(-2px);
 }
 
+/* Navbar Search Styles */
+.navbar-search {
+    margin-right: 10px;
+}
+
+.navbar-search .input-group {
+    flex-wrap: nowrap; /* Prevents the search button from wrapping to the next line */
+}
+
+.navbar-search-input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff !important; /* Important to ensure text is always visible */
+    border-radius: 20px 0 0 20px;
+    transition: all 0.3s ease;
+    width: 180px;
+}
+
+.navbar-search-input:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    width: 220px;
+}
+
+.navbar-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar-search-btn {
+    background: linear-gradient(to right, #4a00e0, #8e2de2);
+    border: none;
+    color: white;
+    border-radius: 0 20px 20px 0;
+    padding: 0.375rem 0.75rem;
+}
+
+.navbar-search-btn:hover {
+    opacity: 0.9;
+}
+
+/* Light Theme Navbar Search Adjustments */
+body.light-theme .navbar-search-input {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #333 !important; /* Ensure text is visible in light theme */
+}
+
+body.light-theme .navbar-search-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+body.light-theme .navbar-search-input:focus {
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+body.light-theme .navbar-search-btn {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    color: #333;
+}
+
+/* Search Bar Styles - Kept for reference but not used anymore */
+.search-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px 0;
+    margin-top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(to right, #4a00e0, #8e2de2);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 0 15px rgba(142, 45, 226, 0.5);
+}
+
+/* Light Theme Search Bar Adjustments */
+body.light-theme .search-container {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+body.light-theme .search-input {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+body.light-theme .search-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+body.light-theme .search-input:focus {
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+body.light-theme .search-button {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    color: #333;
+}
+
 /* Content Styles */
 .webstore-content {
     padding: 25px;
@@ -241,6 +387,26 @@ body.light-theme .actual-price {
     color: #777;
 }
 
+/* Search Results Page Styles */
+.search-results-section .section-title {
+    margin-bottom: 25px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.no-results p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #e4e6eb;
+}
+
+body.light-theme .no-results p {
+    color: #444;
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
     .product-title {
@@ -254,6 +420,20 @@ body.light-theme .actual-price {
     
     .actual-price {
         font-size: 0.8rem;
+    }
+    
+    /* Search bar responsive adjustments */
+    .navbar-search {
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    .navbar-search .input-group {
+        width: 100%;
+    }
+    
+    .navbar-search-input {
+        width: 100% !important;
     }
 }
 

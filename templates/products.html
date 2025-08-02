@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webstore</title>
+    <title>{% if is_search %}Search Results{% else %}Products{% endif %} | Webstore</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -16,10 +16,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
@@ -31,7 +31,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0 navbar-search" action="/search" method="GET">
                     <div class="input-group">
-                        <input type="text" name="query" class="form-control navbar-search-input" placeholder="Search...">
+                        <input type="text" name="query" class="form-control navbar-search-input" placeholder="Search..." value="{% if query %}{{ query }}{% endif %}">
                         <div class="input-group-append">
                             <button class="btn navbar-search-btn" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -46,10 +46,16 @@
     </header>
 
     <main class="container webstore-content">
-        <section class="trending-section">
-            <h2 class="section-title">Trending Products</h2>
+        <section class="products-section">
+            {% if is_search %}
+            <h2 class="section-title">Search Results for "{{ query }}"</h2>
+            {% else %}
+            <h2 class="section-title">All Products</h2>
+            {% endif %}
+            
+            {% if products|length > 0 %}
             <div class="row">
-                {% for item in trending_items %}
+                {% for item in products %}
                 <div class="col-md-3 col-sm-6 mb-4">
                     <div class="product-card">
                         <div class="product-image">
@@ -70,6 +76,16 @@
                 </div>
                 {% endfor %}
             </div>
+            {% else %}
+            <div class="no-results">
+                {% if is_search %}
+                <p>No products found matching your search criteria.</p>
+                {% else %}
+                <p>No products available at the moment.</p>
+                {% endif %}
+                <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+            </div>
+            {% endif %}
         </section>
     </main>
 
