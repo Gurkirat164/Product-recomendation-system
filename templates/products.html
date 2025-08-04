@@ -31,7 +31,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0 navbar-search" action="/search" method="GET">
                     <div class="input-group">
-                        <input type="text" name="query" class="form-control navbar-search-input" placeholder="Search..." value="{% if query %}{{ query }}{% endif %}" autocomplete="off">
+                        <input type="text" name="query" class="form-control navbar-search-input" placeholder="Search..." value="{% if query %}{{ query }}{% endif %}">
                         <div class="input-group-append">
                             <button class="btn navbar-search-btn" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -39,7 +39,6 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="search-suggestions"></div>
                     </div>
                 </form>
             </div>
@@ -49,17 +48,9 @@
     <main class="container webstore-content">
         <section class="products-section">
             {% if is_search %}
-                {% if products|length > 0 %}
-                    {% if show_random %}
-                        <h2 class="section-title">Random Products (No results found for "{{ query }}")</h2>
-                    {% else %}
-                        <h2 class="section-title">Recommended Products for "{{ query }}"</h2>
-                    {% endif %}
-                {% else %}
-                    <h2 class="section-title">Search Results for "{{ query }}"</h2>
-                {% endif %}
+            <h2 class="section-title">Search Results for "{{ query }}"</h2>
             {% else %}
-                <h2 class="section-title">All Products</h2>
+            <h2 class="section-title">All Products</h2>
             {% endif %}
             
             {% if products|length > 0 %}
