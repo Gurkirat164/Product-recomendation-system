@@ -23,15 +23,15 @@
                         <a class="nav-link" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/about' %}active{% endif %}" href="{{ url_for('about') }}">About</a>
+                        <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/contact' %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a>
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 navbar-search" action="/search" method="GET">
                     <div class="input-group">
-                        <input type="text" name="query" class="form-control navbar-search-input" placeholder="Search...">
+                        <input type="text" name="query" class="form-control navbar-search-input" placeholder="Search..." autocomplete="off">
                         <div class="input-group-append">
                             <button class="btn navbar-search-btn" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -39,6 +39,7 @@
                                 </svg>
                             </button>
                         </div>
+                        <div class="search-suggestions"></div>
                     </div>
                 </form>
             </div>
