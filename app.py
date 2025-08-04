@@ -151,6 +151,26 @@ def search():
                                  query=query,
                                  show_random=True)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'POST':
+        # Here you could add code to handle form submission
+        # For example, sending an email or storing contact requests
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+        
+        # For now, we'll just acknowledge the submission
+        return render_template('contact.html', 
+                              submission_successful=True,
+                              name=name)
+    
+    return render_template('contact.html', submission_successful=False)
+
 if __name__ == '__main__':
     # Ensure data is loaded
     if train_data_global is None:

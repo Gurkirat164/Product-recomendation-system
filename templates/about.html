@@ -1,0 +1,153 @@
+{% extends 'index.html' %}
+
+{% block title %}About - Product Recommendation System{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="webstore-content">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="section-title">About Our Product Recommendation System</h1>
+                
+                <div class="about-section">
+                    <!-- Hero Section -->
+                    <div class="text-center mb-5">
+                        <img src="{{ url_for('static', filename='images/about-hero.svg') }}" alt="Recommendation System" class="img-fluid about-hero mb-4" style="max-width: 400px;">
+                        <p class="lead">
+                            Discover products tailored to your preferences with our advanced recommendation engine
+                        </p>
+                    </div>
+                    
+                    <!-- Mission Section -->
+                    <div class="mb-5">
+                        <h2 class="about-heading">Our Mission</h2>
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <p>
+                                    At Product Recommendation System, we're passionate about connecting shoppers with products they'll love. 
+                                    Our mission is to enhance the shopping experience by providing personalized product recommendations 
+                                    that match individual preferences and needs.
+                                </p>
+                                <p>
+                                    Using cutting-edge machine learning algorithms, we analyze product attributes and user behavior 
+                                    to suggest items that are most relevant to each shopper, saving time and introducing customers 
+                                    to products they might otherwise miss.
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="mission-icon-wrapper">
+                                    <i class="fas fa-bullseye fa-5x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- How It Works Section -->
+                    <div class="mb-5">
+                        <h2 class="about-heading">How It Works</h2>
+                        <div class="row mt-4">
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 feature-card">
+                                    <div class="card-body text-center">
+                                        <div class="feature-icon mb-3">
+                                            <i class="fas fa-tags fa-3x"></i>
+                                        </div>
+                                        <h3 class="card-title">Content-Based Filtering</h3>
+                                        <p class="card-text">
+                                            Our system analyzes product attributes like categories, brands, and features
+                                            to recommend similar items based on what you're currently viewing.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 feature-card">
+                                    <div class="card-body text-center">
+                                        <div class="feature-icon mb-3">
+                                            <i class="fas fa-chart-line fa-3x"></i>
+                                        </div>
+                                        <h3 class="card-title">Trending Products</h3>
+                                        <p class="card-text">
+                                            Discover what's popular with our trending products feature, which highlights 
+                                            items gaining attention based on ratings and popularity.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 feature-card">
+                                    <div class="card-body text-center">
+                                        <div class="feature-icon mb-3">
+                                            <i class="fas fa-search fa-3x"></i>
+                                        </div>
+                                        <h3 class="card-title">Smart Search</h3>
+                                        <p class="card-text">
+                                            Our intelligent search understands what you're looking for and provides 
+                                            relevant recommendations even when exact matches aren't available.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technology Stack -->
+                    <div class="mb-5">
+                        <h2 class="about-heading">Our Technology Stack</h2>
+                        <p class="mb-4">
+                            We've built our recommendation system using powerful open-source technologies 
+                            that enable us to process large amounts of data and generate accurate recommendations.
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-6 col-md-3 mb-4">
+                                <div class="tech-card text-center">
+                                    <i class="fab fa-python fa-3x mb-3"></i>
+                                    <h4>Python</h4>
+                                    <p>Core programming language</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-4">
+                                <div class="tech-card text-center">
+                                    <i class="fas fa-flask fa-3x mb-3"></i>
+                                    <h4>Flask</h4>
+                                    <p>Web framework</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-4">
+                                <div class="tech-card text-center">
+                                    <i class="fas fa-brain fa-3x mb-3"></i>
+                                    <h4>Scikit-learn</h4>
+                                    <p>Machine learning library</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-4">
+                                <div class="tech-card text-center">
+                                    <i class="fab fa-bootstrap fa-3x mb-3"></i>
+                                    <h4>Bootstrap</h4>
+                                    <p>Frontend framework</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Section -->
+                    <div class="mb-5">
+                        <h2 class="about-heading">Our Team</h2>
+                        <p>
+                            Our team consists of passionate data scientists, machine learning engineers, and web developers 
+                            dedicated to creating intelligent shopping experiences. We're constantly working to improve our 
+                            algorithms and provide more accurate and personalized recommendations.
+                        </p>
+                        
+                        <div class="cta-box mt-5 text-center">
+                            <h3>Want to know more about how we can help you?</h3>
+                            <p>Reach out to our team with any questions or feedback.</p>
+                            <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg mt-3">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

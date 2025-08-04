@@ -463,6 +463,265 @@ body.light-theme .no-results p {
     color: #444;
 }
 
+/* About and Contact Page Styles */
+.about-heading, .contact-heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.about-heading:after, .contact-heading:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #4a00e0, #8e2de2);
+}
+
+/* Feature Cards */
+.feature-card {
+    background-color: #1a2234;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+    color: #8e2de2;
+    background: linear-gradient(135deg, rgba(142, 45, 226, 0.1), rgba(74, 0, 224, 0.1));
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #e4e6eb;
+}
+
+.feature-card .card-text {
+    color: #b0b3b8;
+}
+
+/* Technology Cards */
+.tech-card {
+    background-color: #1a2234;
+    padding: 20px;
+    border-radius: 15px;
+    height: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tech-card i {
+    color: #8e2de2;
+}
+
+.tech-card h4 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #e4e6eb;
+}
+
+.tech-card p {
+    font-size: 0.9rem;
+    color: #b0b3b8;
+    margin-bottom: 0;
+}
+
+/* Mission Icon */
+.mission-icon-wrapper {
+    color: #8e2de2;
+    padding: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(142, 45, 226, 0.1), rgba(74, 0, 224, 0.1));
+    display: inline-flex;
+}
+
+/* CTA Box */
+.cta-box {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #e4e6eb;
+}
+
+.cta-box p {
+    color: #b0b3b8;
+    margin-bottom: 20px;
+}
+
+/* Contact Page Styles */
+.contact-intro {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #b0b3b8;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(142, 45, 226, 0.1), rgba(74, 0, 224, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8e2de2;
+}
+
+.contact-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #e4e6eb;
+}
+
+.contact-text {
+    color: #b0b3b8;
+    margin-bottom: 0;
+}
+
+.social-icon {
+    color: #e4e6eb;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    color: #8e2de2;
+    transform: translateY(-5px);
+}
+
+.contact-form-container {
+    background-color: #1a2234;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form .form-control {
+    background-color: #242d3c;
+    border: 1px solid #30384a;
+    color: #e4e6eb;
+}
+
+.contact-form .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(142, 45, 226, 0.25);
+    border-color: #8e2de2;
+}
+
+.contact-form .form-floating label {
+    color: #b0b3b8;
+}
+
+.contact-form .form-check-input:checked {
+    background-color: #8e2de2;
+    border-color: #8e2de2;
+}
+
+.contact-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    border-color: rgba(25, 135, 84, 0.2);
+    color: #e4e6eb;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.contact-success i {
+    color: #198754;
+}
+
+/* Light Theme Adjustments */
+body.light-theme .feature-card,
+body.light-theme .tech-card,
+body.light-theme .contact-form-container {
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .feature-card .card-title,
+body.light-theme .tech-card h4,
+body.light-theme .contact-label {
+    color: #333;
+}
+
+body.light-theme .feature-card .card-text,
+body.light-theme .tech-card p,
+body.light-theme .contact-text,
+body.light-theme .contact-intro {
+    color: #666;
+}
+
+body.light-theme .cta-box {
+    background: linear-gradient(135deg, #e6e9f0, #eef1f5);
+}
+
+body.light-theme .cta-box h3 {
+    color: #333;
+}
+
+body.light-theme .cta-box p {
+    color: #666;
+}
+
+body.light-theme .contact-form .form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #333;
+}
+
+body.light-theme .contact-form .form-floating label {
+    color: #666;
+}
+
+body.light-theme .social-icon {
+    color: #333;
+}
+
+body.light-theme .social-icon:hover {
+    color: #a1c4fd;
+}
+
+body.light-theme .contact-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    border-color: rgba(25, 135, 84, 0.2);
+    color: #333;
+}
+
+/* About page hero image */
+.about-hero {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
     .product-title {

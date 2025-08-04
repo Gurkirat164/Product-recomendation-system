@@ -1,0 +1,142 @@
+{% extends 'index.html' %}
+
+{% block title %}Contact Us - Product Recommendation System{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="webstore-content">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="section-title">Contact Us</h1>
+                
+                {% if submission_successful %}
+                <div class="alert alert-success contact-success" role="alert">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-check-circle fa-4x"></i>
+                    </div>
+                    <h4 class="alert-heading text-center">Thank you, {{ name }}!</h4>
+                    <p class="text-center">Your message has been successfully submitted. We'll get back to you as soon as possible.</p>
+                    <hr>
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-success me-3">Return to Homepage</a>
+                        <a href="{{ url_for('products') }}" class="btn btn-success">Browse Products</a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="col-lg-5 mb-5">
+                        <div class="contact-info">
+                            <h2 class="contact-heading">Get In Touch</h2>
+                            <p class="contact-intro">
+                                Have questions about our recommendation system? Want to provide feedback or suggest new features?
+                                We'd love to hear from you! Fill out the form or reach us through the contact details below.
+                            </p>
+                            
+                            <div class="contact-details mt-5">
+                                <div class="contact-item d-flex mb-4">
+                                    <div class="contact-icon me-3">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="contact-label">Address</h5>
+                                        <p class="contact-text">123 Tech Lane, Innovation District<br>Silicon Valley, CA 94025</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item d-flex mb-4">
+                                    <div class="contact-icon me-3">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="contact-label">Email</h5>
+                                        <p class="contact-text">contact@recommendationsystem.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item d-flex mb-4">
+                                    <div class="contact-icon me-3">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="contact-label">Phone</h5>
+                                        <p class="contact-text">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item d-flex mb-4">
+                                    <div class="contact-icon me-3">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="contact-label">Working Hours</h5>
+                                        <p class="contact-text">Monday - Friday: 9AM - 5PM PST<br>Weekend: Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="social-links mt-5">
+                                <h5 class="contact-label mb-3">Connect With Us</h5>
+                                <a href="#" class="social-icon me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                                <a href="#" class="social-icon me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href="#" class="social-icon me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                                <a href="#" class="social-icon me-3"><i class="fab fa-github fa-2x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-7">
+                        <div class="contact-form-container">
+                            <h2 class="contact-heading">Send Us a Message</h2>
+                            <p class="mb-4">We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+                            
+                            <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                                            <label for="name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                                            <label for="email">Email Address</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" name="message" style="height: 150px" placeholder="Your Message" required></textarea>
+                                        <label for="message">Your Message</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="agreement" required>
+                                    <label class="form-check-label" for="agreement">I agree to the <a href="#">privacy policy</a> and <a href="#">terms of service</a>.</label>
+                                </div>
+                                
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
