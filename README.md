@@ -85,24 +85,26 @@ The application will be available at `http://localhost:5000`
 ```
 Product-recomendation-system/
 │
-├── app.py                     # Main Flask application
-├── system.ipynb              # Jupyter notebook for data analysis
-├── README.md                 # Project documentation
+├── app.py                        # Main Flask application
+├── system.ipynb                  # Jupyter notebook for data analysis
+├── README.md                     # Project documentation
+├── requirements.txt              # Python dependencies
+├── start.py          # Pterodactyl startup script
 │
 ├── Data Files/
-│   ├── train_data.csv        # Processed training data
-│   ├── trending_items.csv    # Trending products
-│   └── amazon.csv           # Original dataset
+│   ├── train_data.csv           # Processed training data
+│   ├── trending_items.csv       # Trending products
+│   └── amazon.csv              # Original dataset
 │
 ├── templates/
-│   ├── index.html           # Homepage template
-│   └── products.html        # Products/search results page
+│   ├── index.html              # Homepage template
+│   └── products.html           # Products/search results page
 │
 └── static/
     ├── css/
-    │   └── style.css        # Custom styling
+    │   └── style.css           # Custom styling
     └── js/
-        └── script.js        # Frontend JavaScript
+        └── script.js           # Frontend JavaScript
 ```
 
 ## 🔍 How It Works
@@ -195,8 +197,105 @@ Ensure your CSV files contain these columns:
 python app.py
 ```
 
-### Production Deployment
-For production deployment, consider:
+### Pterodactyl Panel Deployment
+
+This application is fully compatible with Pterodactyl Panel hosting. Follow these steps:
+
+#### Prerequisites
+- Pterodactyl Panel with Python 3.11 egg support
+- Server with at least 1GB RAM (2GB recommended for ML operations)
+- Access to upload files to your Pterodactyl server
+
+#### Step 1: Prepare Your Files
+Ensure these files are in your project directory:
+- `requirements.txt` - Python dependencies
+- `pterodactyl_start.py` - Startup script for Pterodactyl
+- `Procfile` - Process file for web server
+- `pterodactyl-egg.json` - Custom egg configuration (optional)
+- All your CSV data files (`train_data.csv`, `trending_items.csv`)
+
+#### Step 2: Upload to Pterodactyl
+1. **Zip your project**: Create a zip file containing all project files
+2. **Upload via File Manager**: Use Pterodactyl's file manager to upload and extract
+3. **Alternatively**: Use SFTP to transfer files directly
+
+#### Step 3: Configure Server Settings
+- **Docker Image**: `ghcr.io/parkervcp/yolks:python_3.11` (recommended) or `ghcr.io/parkervcp/yolks:python_3.13`
+- **Startup Command**: `python pterodactyl_start.py` (or `python simple_start.py` for minimal setup)
+- **Server Port**: Use the allocated port (usually 25565 for Pterodactyl)
+
+#### Step 4: Environment Variables
+Set these environment variables in your Pterodactyl server:
+```bash
+SERVER_PORT=25565  # Your allocated port
+PYTHONUNBUFFERED=1
+```
+
+#### Step 5: Installation Process
+The startup script will automatically:
+1. Install Python dependencies from `requirements.txt`
+2. Check for required data files
+3. Start the Flask application with Gunicorn
+
+#### Pterodactyl-Specific Files
+
+**requirements.txt** - Python dependencies:
+```txt
+Flask==2.3.3
+pandas==2.1.1
+scikit-learn==1.3.0
+numpy==1.24.3
+Werkzeug==2.3.7
+gunicorn==21.2.0
+```
+
+**Procfile** - Web server configuration:
+```
+web: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2
+```
+
+**pterodactyl_start.py** - Custom startup script that handles:
+- Dependency installation
+- File validation
+- Server startup with proper port binding
+
+#### Troubleshooting Pterodactyl Deployment
+
+**Common Issues & Solutions:**
+
+1. **Disk Space Issues** (ERROR: [Errno 28] No space left on device):
+   - **Solution**: Use minimal requirements: `pip install --no-cache-dir flask pandas scikit-learn numpy`
+   - **Alternative**: Use `requirements-minimal.txt` instead of `requirements.txt`
+   - **Startup Command**: Try `python simple_start.py` for minimal setup
+
+2. **Python 3.13 Compatibility Issues**:
+   - Some packages may not have pre-built wheels for Python 3.13
+   - **Solution**: Use Python 3.11 docker image: `ghcr.io/parkervcp/yolks:python_3.11`
+   - **Alternative**: Use flexible version ranges in requirements.txt
+
+3. **Memory Issues**: Increase server RAM allocation if you see memory errors during pandas/sklearn operations
+
+4. **Port Binding**: Ensure the application binds to `0.0.0.0` and uses the `SERVER_PORT` environment variable
+
+5. **File Permissions**: Make sure all files have proper read permissions
+
+6. **Data Files**: Verify that `train_data.csv` and `trending_items.csv` are uploaded and accessible
+
+**Quick Fix for Disk Space:**
+```bash
+# Manual installation if startup fails
+pip install --no-cache-dir --user flask pandas scikit-learn numpy
+python simple_start.py
+```
+
+#### Performance Optimization for Pterodactyl
+- Use **2+ workers** in Gunicorn for better performance
+- Consider **caching** recommendations for frequently searched items
+- **Optimize data loading** by using smaller datasets if needed
+- Monitor **memory usage** during ML operations
+
+### Traditional Production Deployment
+For production deployment on VPS/dedicated servers:
 - Using a WSGI server like Gunicorn
 - Setting up a reverse proxy with Nginx
 - Configuring environment variables
